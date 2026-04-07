@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
+import { setToken } from '../authStorage';
 
 export default function Login({ setUser }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,12 +19,12 @@ export default function Login({ setUser }) {
     try {
       if (isLogin) {
         const res = await api.post('/auth/login', { email, password });
-        localStorage.setItem('token', res.data.token);
+        setToken(res.data.token);
         setUser(res.data.user);
         navigate('/dashboard');
       } else {
         const res = await api.post('/auth/register', { name, email, password, role });
-        localStorage.setItem('token', res.data.token);
+        setToken(res.data.token);
         setUser(res.data.user);
         navigate('/dashboard');
       }
