@@ -41,7 +41,7 @@ function App() {
               <button className="btn btn-secondary" onClick={() => {
                 clearToken();
                 setUser(null);
-                window.location.href = '/login';
+                window.location.hash = '#/login';
               }}>Logout</button>
             </div>
           </nav>
