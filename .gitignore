@@ -1,0 +1,16 @@
+# Ignore local node modules and build artifacts
+node_modules/
+dist/
+
+# Keep backend folder local and out of Git history
+backend/
+
+# Vercel
+.vercel/
+
+# OS files
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
